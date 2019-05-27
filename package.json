@@ -20,12 +20,16 @@
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.7.0",
+    "react": "16.2.0",
+    "react-dom": "16.2.0",
+    "react-hot-loader": "^4.8.8",
+    "react-redux": "5.0.6",
     "url-loader": "^1.1.2",
     "webpack-dev-server": "^3.4.1",
     "webpack-merge": "^4.2.1"
   },
   "scripts": {
-    "start": "./node_modules/.bin/webpack-dev-server --config ./config/webpack/server.js",
+    "start": "./node_modules/.bin/webpack-dev-server --hot --config ./config/webpack/server.js",
     "build": "./node_modules/.bin/webpack --config ./config/webpack/build.js"
   },
   "babel": {
@@ -42,6 +46,9 @@
           "modules": false
         }
       ]
+    ],
+    "plugins": [
+      "react-hot-loader/babel"
     ]
   }
 }
