@@ -1,0 +1,47 @@
+{
+  "name": "vigny_a",
+  "version": "1.0.0",
+  "description": "Yes",
+  "main": "index.js",
+  "repository": "https://github.com/Lieema/vigny_a_mti_tp3.git",
+  "author": "Lieema <axel.vigny@epita.fr>",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^4.32.2",
+    "webpack-cli": "^3.3.2"
+  },
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^2.1.1",
+    "file-loader": "^3.0.1",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.7.0",
+    "url-loader": "^1.1.2",
+    "webpack-dev-server": "^3.4.1",
+    "webpack-merge": "^4.2.1"
+  },
+  "scripts": {
+    "start": "./node_modules/.bin/webpack-dev-server --config ./config/webpack/server.js",
+    "build": "./node_modules/.bin/webpack --config ./config/webpack/build.js"
+  },
+  "babel": {
+    "presets": [
+      "react",
+      [
+        "env",
+        {
+          "targets": {
+            "browsers": [
+              "last 2 versions"
+            ]
+          },
+          "modules": false
+        }
+      ]
+    ]
+  }
+}
