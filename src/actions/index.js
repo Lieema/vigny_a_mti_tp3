@@ -5,7 +5,7 @@ export function addTweet(payload) {
 }
 
 export function deleteTweet(payload) {
-    return { type: DELETE_TWEET, payload}
+    return { type: DELETE_TWEET, payload }
 }
 
 export function updateTweet(payload) {

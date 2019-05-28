@@ -7,20 +7,23 @@ const initialState = {
 function rootReducer(state = initialState, action) {
     switch (action.type) {
         case ADD_TWEET:
-            state.tweets.push(action.payload)
-            break
-        case DELETE_TWEET:
-            state.tweets.filter(function(value){
-                return value.id != action.payload
+            return Object.assign({}, state, {
+                tweets: state.tweets.concat(action.payload)
             })
-            break
+        case DELETE_TWEET:
+            return Object.assign({}, state, {
+                    tweets: state.tweets.filter((value) => value.id !== action.payload.id
+            )})
         case UPDATE_TWEET:
+            var tweetos = []
             state.tweets.forEach(element => {
-                if (element.id == action.payload.id) {
-                    return payload
-                }
+                if (element.id == action.payload.id)
+                    tweetos.push(action.payload)
+                else
+                    tweetos.push(element)
                 return element
             });
+            return Object.assign({}, {tweets: tweetos})
     }
     return state
 }
