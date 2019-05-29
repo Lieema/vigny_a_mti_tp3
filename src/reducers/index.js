@@ -1,4 +1,4 @@
-import { ADD_TWEET, DELETE_TWEET, UPDATE_TWEET } from "../constants/action-types";
+import { ADD_TWEET, DELETE_TWEET, UPDATE_TWEET, ADD_CHANGE } from "../constants/action-types";
 
 const initialState = {
     tweets: []
@@ -23,7 +23,7 @@ function rootReducer(state = initialState, action) {
                     tweetos.push(element)
                 return element
             });
-            return Object.assign({}, {tweets: tweetos})
+            return Object.assign({}, state, {tweets: tweetos})
     }
     return state
 }

@@ -10,6 +10,8 @@ const App = () => (
             Add Tweet
         </h2>
         <AddForm />
+        <br/>
+        <br/>
         <h2>
             Tweets
         </h2>

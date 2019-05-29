@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import uuidv1 from 'uuid'
 import { addTweet } from '../actions';
+import store from '../store';
 
 function mapDispatchToProps(dispatch) {
     return {
@@ -13,48 +14,38 @@ class UpdateFormTweet extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
+        this.parentTweet = {
             id: props.id,
             date: props.date,
             author: props.author,
             content: props.content
         }
-
-        this.handleChange = this.handleChange.bind(this)
+        
         this.handleSubmit = this.handleSubmit.bind(this)
-    }
-
-    handleChange(event) {
-        this.setState({ [event.target.id]: event.target.value })
     }
 
     handleSubmit(event) {
         event.preventDefault()
-        const {id, date, author, content } = this.state
-        this.props.updateTweet({id, date, author, content})
-        this.setState({author: author, content: content})
+        this.parentTweet.author = document.getElementById('author_update_' + this.parentTweet.id).value
+        this.parentTweet.content = document.getElementById('content_update_' + this.parentTweet.id).value
+        store.dispatch(updateTweet(this.parentTweet))
     }
 
     render() {
-        const { author, content } = this.state
         return (
             <form onSubmit={this.handleSubmit}>
                 <div className="form-group">
-                    <label htmlFor="author">Author</label>
+                    <label htmlFor="author_update">Author</label>
                     <input 
                         type="text"
                         className="form-control"
-                        id="author"
-                        value={author}
-                        onChange={this.handleChange}
+                        id={"author_update_" + this.parentTweet.id}
                     />
-                    <label htmlFor="content">Content</label>
+                    <label htmlFor="content_update">Content</label>
                     <input
                         type="text"
                         className="form-control"
-                        id="content"
-                        value={content}
-                        onChange={this.handleChange}
+                        id={"content_update_" + this.parentTweet.id}
                     />
                 </div>
                 <button type="submit" className="btn btn-success btn-lg">
