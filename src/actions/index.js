@@ -11,7 +11,3 @@ export function deleteTweet(payload) {
 export function updateTweet(payload) {
     return { type: UPDATE_TWEET, payload }
 }
-
-export function addChange(payload) {
-    return { type: ADD_CHANGE, payload }
-}
