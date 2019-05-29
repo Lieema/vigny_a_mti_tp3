@@ -27,7 +27,9 @@
     "redux": "^4.0.1",
     "url-loader": "^1.1.2",
     "webpack-dev-server": "^3.4.1",
-    "webpack-merge": "^4.2.1"
+    "webpack-merge": "^4.2.1",
+    "uuid": "^3.3.2",
+    "bootstrap": "^4.3.1"
   },
   "scripts": {
     "start": "./node_modules/.bin/webpack-dev-server --hot --config ./config/webpack/server.js",
